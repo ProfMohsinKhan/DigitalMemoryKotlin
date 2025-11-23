@@ -6,7 +6,7 @@ DigitalMemory is a modern, offline-first Android application designed to act as 
 *(Yahan apne phone ke screenshots upload karke unke link daalna)*
 | Home Screen | Grid View | Editor | Security |
 |:---:|:---:|:---:|:---:|
-| ![Home](link_here) | ![Grid](link_here) | ![Edit](link_here) | ![Lock](link_here) |
+| ![Home](1.png) | ![Grid](2.png) | ![Edit](3.png) | ![Lock](link_here) |
 
 ## ✨ Key Features
 - **📝 Rich Note Taking:** Text editor with Bold, Italic, and Checkbox support.
