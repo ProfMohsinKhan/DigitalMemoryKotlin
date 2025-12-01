@@ -8,7 +8,7 @@ Built with **Modern Android Development** standards using Kotlin and Jetpack Com
 
 | Dashboard (Grid) | Rich Editor | Attachments | Security Lock |
 |:---:|:---:|:---:|:---:|
-| *(screenshot/1.png)* | *(screenshot/2.png)* | *(screenshot/3.png )* | *(Upload Screen 4)* |
+| <img src="screenshots/1.png" width="200"/> | <img src="screenshots/2.png" width="200"/> | <img src="screenshots/3.png" width="200"/> | <img src="screenshots/4.png" width="200"/> |
 
 ## ✨ Key Features
 
