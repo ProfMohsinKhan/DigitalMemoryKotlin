@@ -71,4 +71,7 @@ dependencies {
     implementation(libs.androidx.biometric)
     implementation(libs.gson)
     implementation("com.google.code.gson:gson:2.11.0")
+    implementation(libs.rich.editor)
+
+
 }

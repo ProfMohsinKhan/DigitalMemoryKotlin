@@ -10,7 +10,6 @@ import androidx.compose.ui.text.input.OffsetMapping
 import androidx.compose.ui.text.input.TransformedText
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.unit.sp
 
 class EditorStyledTransformation : VisualTransformation {
     override fun filter(text: AnnotatedString): TransformedText {
@@ -20,59 +19,45 @@ class EditorStyledTransformation : VisualTransformation {
             append(rawText)
 
             // 1. BOLD (**text**)
-            val boldRegex = Regex("\\*\\*(.*?)\\*\\*")
-            boldRegex.findAll(rawText).forEach { match ->
-                // Hide the stars (**)
+            Regex("\\*\\*(.*?)\\*\\*").findAll(rawText).forEach { match ->
                 addStyle(SpanStyle(color = Color.Transparent), match.range.first, match.range.first + 2)
                 addStyle(SpanStyle(color = Color.Transparent), match.range.last - 1, match.range.last + 1)
-
-                // Style the content
-                addStyle(
-                    SpanStyle(fontWeight = FontWeight.Bold, color = Color.Black),
-                    match.range.first + 2,
-                    match.range.last - 1
-                )
+                addStyle(SpanStyle(fontWeight = FontWeight.Bold, color = Color.Black), match.range.first + 2, match.range.last - 1)
             }
 
             // 2. ITALIC (_text_)
-            val italicRegex = Regex("_(.*?)_")
-            italicRegex.findAll(rawText).forEach { match ->
-                // Hide the underscores (_)
+            Regex("_(.*?)_").findAll(rawText).forEach { match ->
                 addStyle(SpanStyle(color = Color.Transparent), match.range.first, match.range.first + 1)
                 addStyle(SpanStyle(color = Color.Transparent), match.range.last, match.range.last + 1)
-
-                // Style the content
-                addStyle(
-                    SpanStyle(fontStyle = FontStyle.Italic, color = Color.Black),
-                    match.range.first + 1,
-                    match.range.last
-                )
+                addStyle(SpanStyle(fontStyle = FontStyle.Italic, color = Color.Black), match.range.first + 1, match.range.last)
             }
 
-            // 3. CROSS (~~text~~)
-            val strikeRegex = Regex("~~(.*?)~~")
-            strikeRegex.findAll(rawText).forEach { match ->
-                // Hide the tildes (~~)
+            // 3. STRIKE (~~text~~)
+            Regex("~~(.*?)~~").findAll(rawText).forEach { match ->
                 addStyle(SpanStyle(color = Color.Transparent), match.range.first, match.range.first + 2)
                 addStyle(SpanStyle(color = Color.Transparent), match.range.last - 1, match.range.last + 1)
-
-                // Style the content
-                addStyle(
-                    SpanStyle(textDecoration = TextDecoration.LineThrough, color = Color.Gray),
-                    match.range.first + 2,
-                    match.range.last - 1
-                )
+                addStyle(SpanStyle(textDecoration = TextDecoration.LineThrough, color = Color.Gray), match.range.first + 2, match.range.last - 1)
             }
 
-            // 4. CHECKBOX ([ ])
-            val checkboxRegex = Regex("\\[ \\]")
-            checkboxRegex.findAll(rawText).forEach { match ->
-                // Hide [ ]
-                addStyle(SpanStyle(color = Color.Transparent), match.range.first, match.range.last + 1)
+            // 4. TASK: UNCHECKED (⚪)
+            // Just make it look nice (maybe a bit larger or specific color)
+            Regex("⚪").findAll(rawText).forEach { match ->
+                addStyle(SpanStyle(color = Color.DarkGray, fontWeight = FontWeight.Bold), match.range.first, match.range.last + 1)
+            }
 
-                // Iski jagah hum kuch draw nahi kar sakte text field me easily,
-                // to hum bas text ko thoda Grey kar dete hain taaki alag lage
-                // (Real checkbox rendering TextField me bohot complex hai)
+            // 5. TASK: CHECKED (🔘) -> STRIKETHROUGH REST OF LINE
+            // Ye logic dhoondhega: 🔘 Button + Uske baad ka text
+            Regex("🔘(.*)").findAll(rawText).forEach { match ->
+                // Icon Color (Primary/Blue)
+                addStyle(SpanStyle(color = Color(0xFF6200EE)), match.range.first, match.range.first + 1) // Just the button
+
+                // Strike through the text part
+                if (match.groups.size > 1) {
+                    val textRange = match.groups[1]?.range
+                    if (textRange != null) {
+                        addStyle(SpanStyle(textDecoration = TextDecoration.LineThrough, color = Color.Gray), textRange.first, textRange.last + 1)
+                    }
+                }
             }
         }
 
