@@ -6,7 +6,7 @@ Built with **Modern Android Development** standards using Kotlin and Jetpack Com
 
 ## 📱 Screenshots
 
-| Dashboard (Grid) | Rich Editor | Attachments | Security Lock |
+| Import export (Grid) | Dashboard | Attachments | Security Lock |
 |:---:|:---:|:---:|:---:|
 | <img src="screenshot/1.png" width="200"/> | <img src="screenshot/2.png" width="200"/> | <img src="screenshot/3.png" width="200"/> | <img src="screenshots/4.png" width="200"/> |
 
