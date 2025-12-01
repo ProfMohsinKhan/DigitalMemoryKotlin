@@ -1,32 +1,50 @@
-# 🧠 DigitalMemory - Your Second Brain
+# 🧠 DigitalMemory - Your Personal Second Brain
 
-DigitalMemory is a modern, offline-first Android application designed to act as a personal knowledge vault. It allows users to capture thoughts, organize ideas, and attach multimedia securely.
+**DigitalMemory** is a modern, offline-first Android application designed to act as your personal knowledge vault. It allows you to capture thoughts, organize ideas, and attach multimedia securely.
+
+Built with **Modern Android Development** standards using Kotlin and Jetpack Compose.
 
 ## 📱 Screenshots
-*(Yahan apne phone ke screenshots upload karke unke link daalna)*
-| Home Screen | Grid View | Editor | Security |
+
+| Dashboard (Grid) | Rich Editor | Attachments | Security Lock |
 |:---:|:---:|:---:|:---:|
-| ![Home](1.png) | ![Grid](2.png) | ![Edit](3.png) | ![Lock](link_here) |
+| *(screenshot/1.png)* | *(screenshot/2.png)* | *(screenshot/3.png )* | *(Upload Screen 4)* |
 
 ## ✨ Key Features
-- **📝 Rich Note Taking:** Text editor with Bold, Italic, and Checkbox support.
-- **📂 Multimedia Attachments:** Attach Images, Audio Recordings, Videos, and PDFs.
-- **☁️ Offline First:** Built on Room Database for instant load times and offline access.
-- **🔐 Biometric Security:** Secure private notes with Fingerprint/Face Unlock.
-- **🎨 Modern UI:** Built with Jetpack Compose, supporting Staggered Grid and List layouts.
-- **🎙️ Voice Recorder:** Integrated In-app voice recorder.
-- **♻️ Recycle Bin:** Safely restore deleted notes.
-- **💾 Backup & Restore:** Universal ZIP backup support.
 
-## 🛠️ Tech Stack
-- **Language:** Kotlin
-- **UI:** Jetpack Compose (Material 3)
-- **Architecture:** MVVM (Clean Architecture)
-- **Database:** Room (SQLite)
-- **Async:** Coroutines & Flow
-- **Image Loading:** Coil
-- **Hardware Integration:** Camera, Microphone, BiometricPrompt
+- **📝 Rich Text Editor:** Format notes with **Bold**, *Italic*, Underline, Strikethrough, and Lists.
+- **📂 Multimedia Support:**
+  - 📸 Attach Images (Gallery Picker).
+  - 🎤 Record Voice Notes instantly.
+  - 🎬 Attach Videos & PDF Documents.
+  - 🔗 Smart Hyperlinks for all attachments.
+- **☁️ Universal Backup:** Import/Export your entire data (Database + Files) as a ZIP file. Works with Google Drive, WhatsApp, or Local Storage.
+- **🔐 Privacy First:** Secure your private thoughts with **Biometric Lock** (Fingerprint/Face ID).
+- **🎨 Modern UI:**
+  - Beautiful **Staggered Grid** layout (Pinterest style).
+  - Switch between **Grid & List** views.
+  - Collapsible media sections.
+- **🛡️ Safety:** Recycle Bin with Restore functionality.
+- **🔍 Smart Search:** Deep search within notes content.
+- **⏰ Reminders:** Set local push notifications for important notes.
 
-## 👨‍💻 Developer
-**Mohsin Khan** - LinkedIn: [Your LinkedIn Profile Link]
-- GitHub: [Your GitHub Profile Link]
+## 🛠️ Tech Stack & Architecture
+
+- **Language:** Kotlin 100%
+- **UI:** Jetpack Compose (Material Design 3)
+- **Architecture:** MVVM (Model-View-ViewModel) with Clean Architecture principles.
+- **Database:** Room Database (SQLite abstraction) with TypeConverters.
+- **Async Programming:** Coroutines & Kotlin Flows.
+- **Dependency Injection:** Manual Dependency Injection (Factory Pattern).
+- **Hardware Integration:**
+  - `Camera/Gallery` (Photo Picker)
+  - `Microphone` (MediaRecorder API)
+  - `Biometrics` (BiometricPrompt API)
+  - `File System` (Storage Access Framework - SAF)
+  - `AlarmManager` (Exact Alarms)
+
+## 🚀 How to Run
+
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/your-username/DigitalMemory-Android.git](https://github.com/your-username/DigitalMemory-Android.git)
